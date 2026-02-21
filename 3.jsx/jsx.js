@@ -109,8 +109,14 @@ function App() {
 
       <p>RollNo : {rollNo}</p>
       <p>boolValue : {String(boolValue)}</p>
+      <p>boolValue : {boolValue}</p>
+      <p>{boolValue}</p>
       <p>middleName : {String(middleName)}</p>
+      <p>middleName : {middleName}</p>
+      <p>{middleName}</p>
       <p>lastName : {String(lastName)}</p>
+      <p>lastName : {lastName}</p>
+      <p>{lastName}</p>
 
       {/* table */}
       <table border="1">
