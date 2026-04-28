@@ -1,16 +1,19 @@
 //variables
 let score = 0;
 let wicket = 0;
+let runs = 0;
 const ballsWiseOutput = [];
+const commentRef = React.createRef();
 
 const addScore = (num) => {
+  runs = num;
   if (wicket < 10) {
     // wickets cant be more than 10
-    if (num == 0) {
-      ballsWiseOutput.push(".");
-    } else {
-      ballsWiseOutput.push(num);
-    }
+    // if (num == 0) {
+    //   ballsWiseOutput.push(".");
+    // } else {
+    //   ballsWiseOutput.push(num);
+    // }
 
     score += num;
     root.render(<App />);
@@ -18,28 +21,15 @@ const addScore = (num) => {
 };
 
 const addWicket = () => {
+  runs = "W";
   if (wicket < 10) {
     // wickets cant be more than 10
 
-    ballsWiseOutput.push("w");
+    // ballsWiseOutput.push("w");
     wicket += 1;
     root.render(<App />);
   }
 };
-//App component
-function App() {
-  return (
-    <>
-      <h1>Score Keeper App</h1>
-      <h2>
-        Score : {score}/{wicket}
-      </h2>
-      <Button />
-      <hr></hr>
-      <BallsWiseOutput />
-    </>
-  );
-}
 
 //Button component
 const Button = () => {
@@ -79,6 +69,49 @@ const BallsWiseOutput = () => {
     </div>
   );
 };
+
+//HandleSubmitForm component
+const HandleSubmitForm = (event) => {
+  event.preventDefault(); // this will not reload the page on submit
+
+  //getting the comment from input
+  console.log("comment ", commentRef.current); // we get input field
+  console.log("comment ", commentRef.current.value); // we get value from the input field
+  const comment = commentRef.current.value;
+
+  //pushing runs to array
+  ballsWiseOutput.push(runs);
+  console.log("ballWiseOutput", ballsWiseOutput);
+};
+
+//form component
+const FormComponent = () => {
+  return (
+    <>
+      <form action=" " onSubmit={HandleSubmitForm}>
+        <input type="text" placeholder="runs scored" value={runs}></input>
+        <input ref={commentRef} type="text" placeholder="add comment"></input>
+        <button>submit</button>
+      </form>
+    </>
+  );
+};
+
+//App component
+function App() {
+  return (
+    <>
+      <h1>Score Keeper App</h1>
+      <h2>
+        Score : {score}/{wicket}
+      </h2>
+      <Button />
+      <hr></hr>
+      <FormComponent />
+      <BallsWiseOutput />
+    </>
+  );
+}
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
