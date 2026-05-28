@@ -5,8 +5,8 @@ function App() {
   const name = "John";
   const rollNo = 30;
   const boolValue = true; //will not print in output so convert to string to see it in the output.
-  const middleName = null; //will not print in output in output so convert to string to see it in the output.
-  const lastName = undefined; //will not print in output in output so convert to string to see it in the output.
+  const middleName = null; //will not print in output so convert to string to see it in the output.
+  const lastName = undefined; //will not print in output so convert to string to see it in the output.
   //array
   const arr = [1, 2, 3, 4, 5, 6];
 
@@ -71,24 +71,24 @@ function App() {
       {/*using map() to print array*/}
       <h3>
         Array <span>using map</span> :
-        {arr.map((num, index) => {
-          return <p key={index}>{num}</p>;
-        })}
       </h3>
+      {arr.map((num, index) => {
+        return <p key={index}>{num}</p>;
+      })}
 
       {/* using filter() to print event elements of the array */}
 
       <h3>
         Array <span>using fiter</span> :{" "}
-        {evenArr.map(
-          (
-            num,
-            index, //using map to print the evenArr
-          ) => (
-            <p key={index}>{num}</p>
-          ),
-        )}
       </h3>
+      {evenArr.map(
+        (
+          num,
+          index, //using map to print the evenArr
+        ) => (
+          <p key={index}>{num}</p>
+        ),
+      )}
 
       {/* using object */}
 
