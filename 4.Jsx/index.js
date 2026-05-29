@@ -125,6 +125,7 @@ function App() {
   //   );
 }
 
+//component StudentTable
 function StudentTable() {
   const studentTable = [
     {
