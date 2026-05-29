@@ -1,8 +1,11 @@
 //variables
 let score = 0;
 let wicket = 0;
+
+//array for storing the score
 const ballsWiseOutput = [];
 
+//function for adding
 const addScore = (num) => {
   if (wicket < 10) {
     // wickets cant be more than 10
@@ -17,6 +20,7 @@ const addScore = (num) => {
   }
 };
 
+//fuction for adding wicket
 const addWicket = () => {
   if (wicket < 10) {
     // wickets cant be more than 10
@@ -26,6 +30,7 @@ const addWicket = () => {
     root.render(<App />);
   }
 };
+
 //App component
 function App() {
   return (
