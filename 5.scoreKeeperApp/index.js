@@ -8,13 +8,6 @@ const commentRef = React.createRef();
 const addScore = (num) => {
   runs = num;
   if (wicket < 10) {
-    // wickets cant be more than 10
-    // if (num == 0) {
-    //   ballsWiseOutput.push(".");
-    // } else {
-    //   ballsWiseOutput.push(num);
-    // }
-    // score += num;
     root.render(<App />);
   }
 };
@@ -22,10 +15,6 @@ const addScore = (num) => {
 const addWicket = () => {
   runs = "W";
   if (wicket < 10) {
-    // wickets cant be more than 10
-
-    // ballsWiseOutput.push("w");
-    // wicket += 1;
     root.render(<App />);
   }
 };
