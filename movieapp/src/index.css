@@ -70,7 +70,7 @@ body {
 }
 
 .favourite-btn,
-.cart-btn {
+.addCart-btn {
   border: none;
   padding: 10px 18px;
   font-size: 18px;
@@ -79,7 +79,7 @@ body {
 }
 
 .unfavourite-btn,
-.cart-btn {
+.removeCart-btn {
   border: none;
   padding: 10px 18px;
   font-size: 18px;
@@ -96,17 +96,21 @@ body {
   color: white;
 }
 
-.cart-btn {
+.addCart-btn {
   background-color: #0d6efd;
+  color: white;
+}
+.removeCart-btn {
+  background-color: #062656;
   color: white;
 }
 
 .favourite-btn:hover,
-.cart-btn:hover {
+.addCart-btn:hover {
   opacity: 0.9;
 }
 .unfavourite-btn:hover,
-.cart-btn:hover {
+.removeCart-btn:hover {
   opacity: 0.9;
 }
 

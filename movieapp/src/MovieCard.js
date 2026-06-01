@@ -14,6 +14,7 @@ export default class MovieCard extends Component {
       rating: 9.5,
       star: 0,
       isFavourte: false,
+      isAddedToCart: false,
     };
     this.addStar = this.addStar.bind(this);
     // this.decreaseStar = this.decreaseStar.bind(this);
@@ -79,10 +80,32 @@ export default class MovieCard extends Component {
     );
   };
 
+  //handling cart button
+  handleCart = () => {
+    this.setState(
+      {
+        isAddedToCart: !this.state.isAddedToCart,
+      },
+      // () => {
+      //   console.log("isFavourite : ", this.state.isFavourte);
+      // },
+    );
+  };
+
   render() {
     // console.log("rendered"); //we wiil get the message rendered multiple times if we use <React.StrictMode><App/></React.StrictMode>
-    const { title, plot, price, poster, rating, star, isFavourte } = this.state;
+    const {
+      title,
+      plot,
+      price,
+      poster,
+      rating,
+      star,
+      isFavourte,
+      isAddedToCart,
+    } = this.state;
     // console.log("isFavourite : ", isFavourte);
+    // console.log("isAddedToCart : ", isAddedToCart);
     return (
       <div className="main">
         <div className="movie-card">
@@ -133,12 +156,20 @@ export default class MovieCard extends Component {
 
               <button
                 className={isFavourte ? "unfavourite-btn" : "favourite-btn"}
-                onClick={this.handleFavourite}
+                onClick={this.handleCart}
               >
                 {isFavourte ? "Unfavourite" : "favourite"}
               </button>
 
-              <button className="cart-btn">Add to cart</button>
+              <button
+                className={isAddedToCart ? "addCart-btn" : "removeCart-btn"}
+                onClick={this.handleCart}
+              >
+                {isAddedToCart ? "Remove from cart" : "Add to cart"}
+              </button>
+
+              {/* <button className="cart-btn">Add to cart</button>
+              <button className="cart-btn">Remove from cart</button> */}
             </div>
           </div>
         </div>
