@@ -33,19 +33,24 @@ export default class MovieCard extends Component {
     // update star till 5 only
     if (this.state.star < 5) {
       //
-      //1st way of setting state using setState()
+      //1st way of setting state using setState() --(passing object in setState())
       //
       // this.setState({
       //   //react provieds setState
       //   star: this.state.star + 0.5,
       // });
       //
-      //2nd way of update using setState();
-      this.setState((prevState) => {
-        return {
-          star: prevState.star + 0.5,
-        };
-      });
+      //2nd way of update using setState(); (passing callback in setState())
+      this.setState(
+        (prevState) => {
+          return {
+            star: prevState.star + 0.5,
+          };
+        },
+        () => {
+          console.log("star in setState : ", this.state.star);
+        },
+      );
     }
     // console.log(" after :: this.state ", this.state);
   };
@@ -62,6 +67,7 @@ export default class MovieCard extends Component {
   };
 
   render() {
+    // console.log("rendered"); //we wiil get the message rendered multiple times if we use <React.StrictMode><App/></React.StrictMode>
     const { title, plot, price, poster, rating, star } = this.state;
     return (
       <div className="main">
