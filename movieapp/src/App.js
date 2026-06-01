@@ -1,10 +1,11 @@
 // import "./App.css";
-import MovieCard from "./MovieCard";
+// import MovieCard from "./MovieCard";
+import MovieList from "./MovieList";
 
 function App() {
   return (
     <div className="App">
-      <MovieCard />
+      <MovieList />
     </div>
   );
 }
