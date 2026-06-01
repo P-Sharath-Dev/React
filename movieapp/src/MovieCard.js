@@ -13,6 +13,7 @@ export default class MovieCard extends Component {
         "https://cdn.marvel.com/content/1x/spidermanbrandnewday_online_1080x1350_ninjas_02.jpg",
       rating: 9.5,
       star: 0,
+      isFavourte: false,
     };
     this.addStar = this.addStar.bind(this);
     // this.decreaseStar = this.decreaseStar.bind(this);
@@ -66,9 +67,22 @@ export default class MovieCard extends Component {
     }
   };
 
+  //handling fav button
+  handleFavourite = () => {
+    this.setState(
+      {
+        isFavourte: !this.state.isFavourte,
+      },
+      // () => {
+      //   console.log("isFavourite : ", this.state.isFavourte);
+      // },
+    );
+  };
+
   render() {
     // console.log("rendered"); //we wiil get the message rendered multiple times if we use <React.StrictMode><App/></React.StrictMode>
-    const { title, plot, price, poster, rating, star } = this.state;
+    const { title, plot, price, poster, rating, star, isFavourte } = this.state;
+    // console.log("isFavourite : ", isFavourte);
     return (
       <div className="main">
         <div className="movie-card">
@@ -98,7 +112,32 @@ export default class MovieCard extends Component {
                 <i className="fas fa-star"></i>
                 <span className="star-count">{star}</span>
               </div>
-              <button className="favourite-btn">Favourite</button>
+
+              {/* conditional rendering for favourite, UnFavourite buttons */}
+
+              {/* {isFavourte ? (
+                <button
+                  className="favourite-btn"
+                  onClick={this.handleFavourite}
+                >
+                  Unfavourite
+                </button>
+              ) : (
+                <button
+                  className="favourite-btn"
+                  onClick={this.handleFavourite}
+                >
+                  favourite
+                </button>
+              )} */}
+
+              <button
+                className={isFavourte ? "unfavourite-btn" : "favourite-btn"}
+                onClick={this.handleFavourite}
+              >
+                {isFavourte ? "Unfavourite" : "favourite"}
+              </button>
+
               <button className="cart-btn">Add to cart</button>
             </div>
           </div>

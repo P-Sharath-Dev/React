@@ -78,8 +78,21 @@ body {
   cursor: pointer;
 }
 
+.unfavourite-btn,
+.cart-btn {
+  border: none;
+  padding: 10px 18px;
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 .favourite-btn {
   background-color: #d58cff;
+  color: white;
+}
+.unfavourite-btn {
+  background-color: #b03cf4;
   color: white;
 }
 
@@ -89,6 +102,10 @@ body {
 }
 
 .favourite-btn:hover,
+.cart-btn:hover {
+  opacity: 0.9;
+}
+.unfavourite-btn:hover,
 .cart-btn:hover {
   opacity: 0.9;
 }
