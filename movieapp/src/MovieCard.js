@@ -1,5 +1,6 @@
 //implementing class components
 import { Component } from "react";
+import "./movieCard.css";
 
 export default class MovieCard extends Component {
   render() {
