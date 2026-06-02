@@ -122,10 +122,17 @@ body {
 .footer .star-count {
   font-size: 20px;
   font-weight: 600;
-  position: absolute;
-  margin: 5px;
+  /* position: absolute;
+  margin: 5px; */
 }
 
 .stars .fa-star {
   color: #ffd700;
+}
+
+.stars {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* user-select: none; */
 }
