@@ -1,9 +1,42 @@
-.navbar {
-  width: 100%;
+.cartItem {
+  height: 48px;
+  margin-right: 20px;
+}
+
+.nav {
+  height: 70px;
+  background: #4267b2;
   display: flex;
   justify-content: space-between;
-  /* gap: 10px; */
-  background-color: rgb(3, 231, 98);
-  height: 8vh;
-  color: blue;
+  align-items: center;
+  position: relative;
+}
+
+.title {
+  font-size: 30px;
+  color: #fff;
+  font-weight: 600;
+  font-family: "Times New Roman", Times, serif;
+  text-transform: uppercase;
+  margin-left: 20px;
+}
+
+.cartItemContainer {
+  position: relative;
+  cursor: pointer;
+}
+
+.cartCount {
+  background: #fead00;
+  border-radius: 50%;
+  padding: 4px 8px;
+  position: absolute;
+  right: 0px;
+  top: 26px;
+  font-size: 12px;
+}
+
+.cartIcon {
+  height: 30px;
+  margin-right: 35px;
 }

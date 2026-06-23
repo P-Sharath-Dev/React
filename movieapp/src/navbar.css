@@ -2,7 +2,6 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  /* gap: 10px; */
   background-color: rgb(3, 231, 231);
   height: 8vh;
   color: blue;
@@ -11,7 +10,3 @@
 .navbar div {
   margin: 10px 10px 0 10px;
 }
-
-/* .navbar div h3 {
-  margin: 0;
-} */
