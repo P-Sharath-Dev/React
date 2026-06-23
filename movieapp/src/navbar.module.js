@@ -13,7 +13,7 @@ class NavbarModule extends Component {
               alt="Cart-icon"
               src="https://cdn-icons-png.flaticon.com/128/3643/3643914.png"
             />
-            <span className={styles.cartCount}>5</span>
+            <span className={styles.cartCount}>{this.props.cartCount}</span>
           </div>
         </div>
       </>
