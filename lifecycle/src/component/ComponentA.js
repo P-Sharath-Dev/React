@@ -7,23 +7,10 @@ export default class ComponentA extends Component {
     super();
     this.state = {
       name: "learning lifecycle methods",
+      usersData: [],
     };
 
     console.log("constructor from component A");
-  }
-
-  //rencer
-  render() {
-    console.log("render method from component A");
-    return (
-      <>
-        <div>
-          <h1>Component A : {this.state.name}</h1>
-        </div>
-
-        <ComponentB />
-      </>
-    );
   }
 
   //getDerivedStateFromProps function
@@ -35,5 +22,41 @@ export default class ComponentA extends Component {
   //componentDidMount
   componentDidMount() {
     console.log("from componentDidMount-component A");
+
+    //************using fetch for side effect*************
+    // Send a GET request.
+    fetch("https://jsonplaceholder.typicode.com/users")
+      // The response data is not readable, so converting it into a JavaScript object using .json().
+      .then((response) => response.json())
+
+      // Receive the JavaScript users data and print it to the console.
+      // .then((users) => console.log(users))
+
+      //storing data in usersData array inside this.state()
+      .then((users) =>
+        this.setState({ usersData: users }, () =>
+          console.log("users data from this.state", this.state.usersData),
+        ),
+      );
+  }
+
+  //render
+  render() {
+    console.log("render method from component A");
+
+    return (
+      <>
+        <div>
+          <h1>Component A : {this.state.name}</h1>
+        </div>
+
+        <ol>
+          {this.state.usersData.map((user, index) => (
+            <li key={index}>{user.username}</li>
+          ))}
+        </ol>
+        <ComponentB />
+      </>
+    );
   }
 }
