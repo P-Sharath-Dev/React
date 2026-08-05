@@ -6,6 +6,7 @@ export default class Timer extends Component {
     this.state = {
       time: 0,
     };
+    this.timerIntervalId = null;
     console.log("constructor");
   }
 
@@ -23,19 +24,25 @@ export default class Timer extends Component {
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
     console.log("getSnapshotBeforeUpdate");
-    return null;
+    return 5;
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     console.log("componentDidUpdate");
+    console.log("componentDidUpdate : prevProps", prevProps);
+    console.log("componentDidUpdate: prevState", prevState);
+    console.log("componentDidUpdate : snapshot", snapshot);
     console.log("____________");
+    if (this.state.time == 10) {
+      clearInterval(this.timerIntervalId);
+    }
   }
   //**till here updating phase methods ***/
 
   //componentDidMount
   componentDidMount() {
     console.log("from componentDidMount");
-    setInterval(() => {
+    this.timerIntervalId = setInterval(() => {
       this.setState((prevState) => {
         return { time: prevState.time + 1 };
       });

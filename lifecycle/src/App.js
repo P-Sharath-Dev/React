@@ -16,7 +16,7 @@ class App extends Component {
       <>
         {/* <ComponentA /> */}
         <h1>Timer-App</h1>
-        <Timer />
+        <Timer data={100} />
       </>
     );
   }
