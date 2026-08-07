@@ -19,7 +19,16 @@ export default class Timer extends Component {
   //*********updating phase methods*/
   shouldComponentUpdate(nextProps, nextState) {
     console.log("From shouldComponentUpdate");
-    return true;
+    console.log("From shouldComponentUpdate : nextprops", nextProps);
+    console.log("From shouldComponentUpdate : nextState", nextState);
+    console.log("this.state.time", this.state.time); // giving last prevState's time like if time 1 we get 0
+    // updating(means rendering) for every five seconds not for every update
+    if (
+      nextState.time % 5 === 0 ||
+      nextProps.isTimerStarted !== this.props.isTimerStarted
+    ) {
+      return true;
+    }
   }
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
@@ -29,12 +38,21 @@ export default class Timer extends Component {
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     console.log("componentDidUpdate");
-    console.log("componentDidUpdate : prevProps", prevProps);
-    console.log("componentDidUpdate: prevState", prevState);
-    console.log("componentDidUpdate : snapshot", snapshot);
+    // console.log("componentDidUpdate : prevProps", prevProps);
+    // console.log("componentDidUpdate: prevState", prevState);
+    // console.log("componentDidUpdate : snapshot", snapshot);
     console.log("____________");
-    if (this.state.time == 10) {
-      clearInterval(this.timerIntervalId);
+
+    if (prevProps.isTimerStarted !== this.props.isTimerStarted) {
+      if (this.props.isTimerStarted) {
+        this.timerIntervalId = setInterval(() => {
+          this.setState((prevState) => {
+            return { time: prevState.time + 1 };
+          });
+        }, 1000);
+      } else {
+        clearInterval(this.timerIntervalId);
+      }
     }
   }
   //**till here updating phase methods ***/
@@ -42,18 +60,21 @@ export default class Timer extends Component {
   //componentDidMount
   componentDidMount() {
     console.log("from componentDidMount");
-    this.timerIntervalId = setInterval(() => {
-      this.setState((prevState) => {
-        return { time: prevState.time + 1 };
-      });
-    }, 1000);
+  }
+
+  //*****unmounting phase****** */
+  componentWillUnmount() {
+    console.log("from componentWillUnmount");
+    // if (this.state.time === 10) {
+    // clearInterval(this.timerIntervalId);
+    // }
   }
 
   render() {
     console.log("from render ");
     return (
       <>
-        <h1>Timer </h1>
+        {/* <h1>Timer </h1> */}
 
         {/* Multiply by 1000 because 1000 means one second*/}
         {/* slice(11, 19) extracts only the HH:MM:SS part
