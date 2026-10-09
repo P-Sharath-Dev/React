@@ -25,7 +25,7 @@ export default class ComponentA extends Component {
 
     //************using fetch for side effect*************
     // Send a GET request.
-    fetch("https://jsonplaceholder.typicode.com/users")
+    fetch("https://jsonplaceholder.typicode.com/users/")
       // The response data is not readable, so converting it into a JavaScript object using .json().
       .then((response) => response.json())
 
@@ -55,7 +55,7 @@ export default class ComponentA extends Component {
             <li key={index}>{user.username}</li>
           ))}
         </ol>
-        <ComponentB />
+        {/* <ComponentB /> */}
       </>
     );
   }
