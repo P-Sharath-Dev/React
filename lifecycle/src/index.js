@@ -17,5 +17,5 @@ root.render(
       `}
     </style>
     <App />
-  </>,
+  </>
 );
